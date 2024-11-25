@@ -1,0 +1,329 @@
+.greeting{
+    color: blueviolet;
+    text-shadow: 2px 2px rgba(222, 163, 242, 0.801);
+    /* font-weight: 600; */
+}
+.jsxgreeting{
+    color: rgb(52, 13, 89);
+    text-shadow: 2px 2px rgba(222, 163, 242, 0.801);
+    /* font-weight: 600; */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    display: flex;
+    /* align-items: center; */
+}
+
+.navbar-logo img {
+    height: 70px;
+    margin-right: 10px;
+}
+
+.navbar-title {
+    font-size: 1.5rem;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 60%;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.navbar-menu li a:hover {
+    color: #007bff;
+}
+
+.navbar-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.dropdown-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar-profile:hover .dropdown-menu {
+    display: flex;
+}
+
+/* ! Main Container css */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+
+
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    /* height: auto; */
+}
+
+.offer-label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+/* !cards css */
+.Res-Container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    left: 3.5rem !important;
+    position: absolute !important;
+}
+
+.Res-Card{
+    display: flex;
+    flex-direction: column;
+    width: 205px;
+    height: auto;
+    /* height: 315px; */
+    border-radius: 1rem;
+    box-shadow: 0px 4px 18px -10px rgba(0,0,0,4);
+    padding: 5px;
+    margin: 5px;
+}
+
+.Res-Card:hover{
+    cursor: pointer;
+    box-shadow: 1px 4px 22px -8px rgba(0,0,0,4);
+}
+.Res-Image{
+   height: 150px;
+    width: 100%;
+    max-width: 190px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+
+.Res-Card-Content{
+    padding: 1rem;
+    padding: 0 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Res-Name-Container{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Res-Name{
+    font-size: 1rem;
+}
+
+.Res-Details{
+    justify-content: start;
+    margin: 0.5rem 0 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+    font-size: medium;
+}
+
+.Res-Cuisine{
+    /* font-family: Gilroy; */
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+   
+}
+.icon-container {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, #00cc00, #007e00); /* Green gradient */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* !Start rating css */
+.star-icon {
+    width: 21px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #00cc00;  */
+    border-radius: 50%; /* Ensures star has a circle background */
+}
+
+.star {
+    color: #FFFFFF; /* Green color for the star */
+    font-size: 18px;
+    padding: 0px 0px 3px 0px;
+}
+.newClass {
+    display: flex !important;
+    /* margin-top:5px; */
+    /* align-items: center !important; */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+.Res-Rating-Text{
+    font-family: Gilroy;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.92);
+}
+.Res-Time-Text{
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.92);
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+   
+    -webkit-box-orient: vertical;
+}
+
+.btn-light{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    margin: 10px;
+    cursor: pointer;
+}
+.btn-red{
+    color: #fff;
+    background-color: #c31123;
+    border-color: #dc3545;
+    margin: 10px;
+    cursor: pointer;
+}
+.row{
+    align-items: center;
+    justify-content: center;
+}
+.btn-light:hover {
+    text-decoration: none;
+}
+.row{
+    display: inline-flex;
+    margin: 0px;
+    /* float: left; */
+}
+.search{
+    width: 300;
+    input {
+        width: 83%;
+    }
+}
