@@ -1,0 +1,191 @@
+
+
+.product-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 16px;
+    color: #333;
+}
+
+.rating {
+    font-size: 14px;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-image {
+    text-align: center;
+}
+
+.product-image img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-button {
+    display: inline-block;
+    background-color: #00b300;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #009900;
+}
+
+/* Menu page Css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.brand:after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: #ff6600;
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 45px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-item {
+    font-size: 18px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-item.active {
+    color: #ff6600;
+    border-bottom: 3px solid #ff6600;
+}
+
+.info-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.rating-star {
+    color: green;
+    margin-right: 10px;
+}
+
+.price {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.category {
+    font-size: 16px;
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.outlet-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.outlet-label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.outlet-name {
+    font-size: 16px;
+    color: #ff6600;
+}
+
+.delivery-time {
+    font-size: 16px;
+    color: #333;
+}

@@ -1,0 +1,161 @@
+To create a React component that displays a list of restaurants in a sortable, paginated table with edit and delete functionalities, we'll follow these steps:
+
+1. **Set up the component**: We'll create a `RestaurantTable` component that manages the state for the restaurants data, pagination, sorting, and popups for editing/deleting.
+
+2. **Dummy Data**: We'll generate 12 rows of dummy restaurant data.
+
+3. **Table Structure**: We'll render a table with sortable columns for `name`, `avgRating`, and `deliveryTime`.
+
+4. **Popup for Edit/Delete**: We'll implement a modal popup that opens with the details of the clicked row for editing or deletion.
+
+5. **Pagination**: We'll add pagination to the table to manage the number of rows displayed.
+
+Here's how we can implement this:
+
+```jsx
+import React, { useState } from 'react';
+import './RestaurantTable.css'; // Assuming you have some CSS for styling
+import Modal from 'react-modal';
+
+const dummyData = Array.from({ length: 12 }, (_, index) => ({
+  id: 200 + index,
+  avgRating: (Math.random() * 5).toFixed(1), // Random rating between 0-5
+  deliveryTime: Math.floor(Math.random() * 60) + 10, // Random delivery time between 10-70 minutes
+  email: `user${index}@example.com`,
+  name: `Restaurant ${index + 1}`,
+  notes: `Notes for Restaurant ${index + 1}`,
+}));
+
+const RestaurantTable = () => {
+  const [data, setData] = useState(dummyData);
+  const [sortConfig, setSortConfig] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [rowsPerPage] = useState(5);
+  const [modalData, setModalData] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = (row) => {
+    setModalData(row);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalData(null);
+    setModalIsOpen(false);
+  };
+
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+    closeModal();
+  };
+
+  const handleEdit = (updatedRow) => {
+    setData(data.map((item) => (item.id === updatedRow.id ? updatedRow : item)));
+    closeModal();
+  };
+
+  const sortedData = React.useMemo(() => {
+    let sortableItems = [...data];
+    if (sortConfig !== null) {
+      sortableItems.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+  }, [data, sortConfig]);
+
+  const paginatedData = sortedData.slice(currentPage * rowsPerPage, (currentPage + 1) * rowsPerPage);
+  
+  const requestSort = (key) => {
+    let direction = 'ascending';
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th onClick={() => requestSort('name')}>Name</th>
+            <th onClick={() => requestSort('avgRating')}>Avg Rating</th>
+            <th onClick={() => requestSort('deliveryTime')}>Delivery Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {paginatedData.map((row) => (
+            <tr key={row.id}>
+              <td>{row.name}</td>
+              <td>{row.avgRating}</td>
+              <td>{row.deliveryTime} min</td>
+              <td>
+                <button onClick={() => openModal(row)}>Edit</button>
+                <button onClick={() => handleDelete(row.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div>
+        {Array.from({ length: Math.ceil(data.length / rowsPerPage) }, (_, index) => (
+          <button key={index} onClick={() => handlePageChange(index)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <h2>{modalData ? 'Edit Restaurant' : 'Delete Restaurant'}</h2>
+        {modalData && (
+          <div>
+            <p>Name: {modalData.name}</p>
+            <p>Avg Rating: {modalData.avgRating}</p>
+            <p>Delivery Time: {modalData.deliveryTime}</p>
+            {/* Add form inputs for editing here */}
+            <button onClick={() => handleEdit({ ...modalData, name: 'Updated Name' })}>Save</button>
+          </div>
+        )}
+        <button onClick={closeModal}>Close</button>
+      </Modal>
+    </div>
+  );
+};
+
+export default RestaurantTable;
+```
+
+### Explanation of Functionality
+
+1. **State Management**:
+   - We use `useState` to manage the restaurant data, sorting configuration, current page, and modal visibility.
+
+2. **Dummy Data**:
+   - We generate 12 rows of dummy restaurant data for demonstration.
+
+3. **Sorting**:
+   - Clicking on a column header (like `Name`, `Avg Rating`, or `Delivery Time`) triggers sorting by that column. The sorting order toggles between ascending and descending.
+
+4. **Pagination**:
+   - We slice the sorted data to show only a subset of rows based on the current page and rows per page. We create pagination buttons based on the total number of pages.
+
+5. **Modal for Edit/Delete**:
+   - A modal opens with the details of the clicked row for editing or deleting. If the user clicks the delete button, the row is removed from the state.
+
+6. **Styling and Responsiveness**:
+   - You can add CSS styles in `RestaurantTable.css` for better UI. Modal styling can also be customized using a library like `react-modal`.
+
+### Note
+- To enhance user experience, consider adding form fields for editing and validation, and more refined UI elements for pagination (like next/previous buttons).

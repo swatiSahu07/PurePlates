@@ -1,0 +1,75 @@
+/* RestaurantTable.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #e0e0e0;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination .button {
+    margin: 0 5px;
+}
+
+.modal {
+    content: "";
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.modal .btn {
+    background-color: #ff4d4d; /* Delete .btn color */
+    color: white;
+}
+
+.modal .btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
